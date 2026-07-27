@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -10,12 +9,13 @@
 <style>
 
 /* =========================================================
-   JOYCELYN'S WORK FROM HOME JOB HUB
-   BLACK + GOLD LUXURY CAREER THEME
+   RESET & GLOBAL
 ========================================================= */
 
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html {
@@ -23,55 +23,94 @@ html {
 }
 
 body {
-    margin: 0;
-    min-height: 100vh;
     font-family: "Segoe UI", Arial, sans-serif;
-    color: #f5ead7;
-
     background:
-        radial-gradient(circle at 10% 10%, rgba(212,175,55,.12), transparent 25%),
-        radial-gradient(circle at 90% 20%, rgba(255,215,100,.08), transparent 25%),
-        radial-gradient(circle at 50% 90%, rgba(212,175,55,.08), transparent 30%),
-        linear-gradient(135deg, #050505, #111111 45%, #050505);
-
-    background-attachment: fixed;
-    padding: 20px 15px 60px;
+        radial-gradient(circle at 10% 10%, rgba(255,255,255,.15) 0 2px, transparent 3px),
+        radial-gradient(circle at 80% 20%, rgba(255,255,255,.12) 0 2px, transparent 3px),
+        radial-gradient(circle at 30% 80%, rgba(255,255,255,.1) 0 2px, transparent 3px),
+        linear-gradient(135deg, #100d1c, #1d1230 35%, #241337 65%, #0d0b17);
+    background-size: 100px 100px, 140px 140px, 170px 170px, cover;
+    color: #f8f3ff;
+    min-height: 100vh;
 }
 
-.page {
-    width: 100%;
+a {
+    color: inherit;
+}
+
+button,
+input,
+select {
+    font-family: inherit;
+}
+
+.container {
+    width: 92%;
     max-width: 1250px;
     margin: auto;
 }
 
 /* =========================================================
-   GOLD SPARKLES
+   HEADER
 ========================================================= */
 
-body::before {
-    content: "✦   ✧       ✦       ✧   ✦       ✧       ✦";
-    position: fixed;
-    top: 5%;
-    left: 0;
-    width: 100%;
-    color: rgba(212,175,55,.35);
-    font-size: 22px;
-    letter-spacing: 25px;
-    pointer-events: none;
-    z-index: -1;
-    animation: sparkle 5s infinite alternate;
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(13, 11, 23, .94);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(244, 196, 85, .25);
 }
 
-@keyframes sparkle {
-    from {
-        opacity: .3;
-        transform: translateY(0);
-    }
+.navbar {
+    max-width: 1250px;
+    width: 92%;
+    margin: auto;
+    min-height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
 
-    to {
-        opacity: .8;
-        transform: translateY(15px);
-    }
+.logo {
+    text-decoration: none;
+    font-size: 21px;
+    font-weight: 900;
+    color: #f4c455;
+    letter-spacing: .3px;
+}
+
+.logo span {
+    display: block;
+    color: #fff;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 3px;
+}
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: flex-end;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #eee7f8;
+    padding: 9px 13px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    transition: .25s;
+}
+
+.nav-links a:hover {
+    color: #111;
+    background: #f4c455;
 }
 
 /* =========================================================
@@ -79,213 +118,264 @@ body::before {
 ========================================================= */
 
 .hero {
-    position: relative;
-    text-align: center;
+    padding: 90px 0 65px;
+}
 
-    background:
-        linear-gradient(
-            145deg,
-            rgba(15,15,15,.98),
-            rgba(35,35,35,.96)
-        );
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.4fr .8fr;
+    gap: 45px;
+    align-items: center;
+}
 
-    border: 1px solid #d4af37;
+.badge {
+    display: inline-block;
+    color: #f4c455;
+    border: 1px solid rgba(244,196,85,.5);
+    background: rgba(244,196,85,.08);
+    padding: 8px 15px;
     border-radius: 30px;
-
-    padding: 55px 25px;
-
+    font-size: 13px;
+    font-weight: 800;
     margin-bottom: 20px;
-
-    box-shadow:
-        0 0 30px rgba(212,175,55,.12),
-        inset 0 0 30px rgba(212,175,55,.04);
-}
-
-.hero::before {
-    content: "✦";
-    position: absolute;
-    top: 20px;
-    left: 25px;
-    color: #d4af37;
-    font-size: 25px;
-}
-
-.hero::after {
-    content: "✦";
-    position: absolute;
-    bottom: 20px;
-    right: 25px;
-    color: #d4af37;
-    font-size: 25px;
 }
 
 .hero h1 {
-    margin: 0;
-
-    font-size: clamp(32px, 6vw, 60px);
-
-    font-weight: 900;
-
-    background:
-        linear-gradient(
-            90deg,
-            #fff4c7,
-            #d4af37,
-            #fff4c7
-        );
-
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-
-    letter-spacing: -1px;
+    font-size: clamp(42px, 7vw, 78px);
+    line-height: 1.02;
+    letter-spacing: -3px;
+    margin-bottom: 22px;
 }
 
-.hero h1::before {
-    content: "✦ ";
-}
-
-.hero h1::after {
-    content: " ✦";
+.hero h1 span {
+    color: #f4c455;
 }
 
 .hero p {
-    max-width: 800px;
-    margin: 20px auto 0;
-
-    color: #d9cbb5;
-
-    font-size: 17px;
+    max-width: 700px;
+    color: #c9bfd5;
+    font-size: 18px;
     line-height: 1.8;
 }
 
-/* =========================================================
-   HERO BUTTONS
-========================================================= */
-
 .hero-buttons {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
     gap: 12px;
-    margin-top: 28px;
+    margin-top: 30px;
 }
 
-.hero-buttons a {
+.btn {
+    display: inline-block;
     text-decoration: none;
-
-    padding: 13px 25px;
-
-    border-radius: 50px;
-
+    border: none;
+    cursor: pointer;
+    padding: 14px 22px;
+    border-radius: 12px;
     font-weight: 800;
-
-    color: #080808;
-
-    background:
-        linear-gradient(
-            135deg,
-            #f9e7a8,
-            #d4af37
-        );
-
-    transition: .3s;
-
-    box-shadow:
-        0 5px 20px rgba(212,175,55,.2);
+    transition: .25s;
 }
 
-.hero-buttons a:hover {
-    transform: translateY(-4px);
+.btn-primary {
+    background: #f4c455;
+    color: #17111e;
+}
 
-    box-shadow:
-        0 10px 30px rgba(212,175,55,.4);
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(244,196,85,.25);
+}
+
+.btn-secondary {
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.15);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: rgba(255,255,255,.12);
 }
 
 /* =========================================================
-   NAVIGATION
+   HERO STAT CARD
 ========================================================= */
 
-.quick-nav {
+.hero-card {
+    background:
+        linear-gradient(145deg, rgba(255,255,255,.08), rgba(255,255,255,.025));
+    border: 1px solid rgba(244,196,85,.25);
+    border-radius: 28px;
+    padding: 28px;
+    box-shadow: 0 25px 60px rgba(0,0,0,.35);
+}
+
+.hero-card-title {
+    color: #f4c455;
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+
+.stat {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-
-    gap: 10px;
-
-    margin: 20px 0;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255,255,255,.08);
 }
 
-.quick-nav a {
-    text-decoration: none;
-
-    color: #e8d39a;
-
-    background: #111;
-
-    border: 1px solid #806b2a;
-
-    padding: 11px 18px;
-
-    border-radius: 50px;
-
-    font-weight: 700;
-
-    transition: .3s;
+.stat:last-child {
+    border-bottom: none;
 }
 
-.quick-nav a:hover {
-    color: #080808;
+.stat strong {
+    font-size: 22px;
+    color: white;
+}
 
-    background: #d4af37;
-
-    transform: translateY(-3px);
-
-    box-shadow:
-        0 8px 20px rgba(212,175,55,.25);
+.stat span {
+    color: #bdb2c9;
 }
 
 /* =========================================================
-   GENERAL SECTIONS
+   SEARCH PANEL
+========================================================= */
+
+.search-panel {
+    background: #fff;
+    color: #24152d;
+    border-radius: 25px;
+    padding: 28px;
+    margin-bottom: 55px;
+    box-shadow: 0 25px 60px rgba(0,0,0,.25);
+}
+
+.search-panel h2 {
+    margin-bottom: 8px;
+}
+
+.search-panel p {
+    color: #735d78;
+    margin-bottom: 20px;
+}
+
+.search-row {
+    display: flex;
+    gap: 10px;
+}
+
+.search-row input {
+    flex: 1;
+    padding: 16px 18px;
+    border-radius: 12px;
+    border: 2px solid #eaddec;
+    outline: none;
+    font-size: 16px;
+}
+
+.search-row input:focus {
+    border-color: #d19a1f;
+}
+
+.search-row button {
+    padding: 0 22px;
+    border: none;
+    border-radius: 12px;
+    background: #24152d;
+    color: white;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.filter-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 18px;
+}
+
+.filter-btn {
+    border: 1px solid #eaddec;
+    background: #faf7fb;
+    color: #432d4d;
+    padding: 9px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: #f4c455;
+    border-color: #f4c455;
+    color: #211523;
+}
+
+/* =========================================================
+   SECTION
 ========================================================= */
 
 .section {
-    background:
-        linear-gradient(
-            145deg,
-            rgba(18,18,18,.98),
-            rgba(10,10,10,.98)
-        );
-
-    border:
-        1px solid rgba(212,175,55,.35);
-
-    border-radius: 25px;
-
-    padding: 30px;
-
-    margin: 25px 0;
-
-    box-shadow:
-        0 10px 35px rgba(0,0,0,.4);
+    padding: 30px 0 70px;
 }
 
 .section-heading {
-    text-align: center;
-
-    color: #d4af37;
-
-    margin-top: 0;
-
-    font-size: 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 20px;
+    margin-bottom: 25px;
 }
 
-.section-subtitle {
-    text-align: center;
+.section-heading h2 {
+    font-size: 32px;
+}
 
-    color: #bcae98;
+.section-heading p {
+    color: #bdb2c9;
+    max-width: 650px;
+    line-height: 1.6;
+}
 
-    margin-bottom: 25px;
+/* =========================================================
+   CATEGORY CARDS
+========================================================= */
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.category-card {
+    text-decoration: none;
+    padding: 24px;
+    min-height: 170px;
+    border-radius: 20px;
+    background: rgba(255,255,255,.055);
+    border: 1px solid rgba(255,255,255,.1);
+    transition: .3s;
+}
+
+.category-card:hover {
+    transform: translateY(-6px);
+    border-color: #f4c455;
+    background: rgba(244,196,85,.08);
+}
+
+.category-icon {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.category-card h3 {
+    color: white;
+    margin-bottom: 8px;
+}
+
+.category-card p {
+    color: #bdb2c9;
+    font-size: 14px;
+    line-height: 1.6;
 }
 
 /* =========================================================
@@ -294,250 +384,144 @@ body::before {
 
 .featured-grid {
     display: grid;
-
-    grid-template-columns:
-        repeat(auto-fit,minmax(210px,1fr));
-
-    gap: 15px;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
 }
 
 .featured-card {
     text-decoration: none;
-
-    color: #f5ead7;
-
-    padding: 23px;
-
+    background: linear-gradient(145deg,#2a1b39,#181321);
+    border: 1px solid rgba(244,196,85,.18);
+    padding: 20px;
     border-radius: 18px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #171717,
-            #0b0b0b
-        );
-
-    border:
-        1px solid #765f20;
-
     transition: .3s;
 }
 
 .featured-card:hover {
-    transform: translateY(-6px);
-
-    border-color: #d4af37;
-
-    box-shadow:
-        0 10px 25px rgba(212,175,55,.2);
+    transform: translateY(-5px);
+    border-color: #f4c455;
 }
 
-.featured-icon {
-    font-size: 28px;
+.featured-card strong {
+    display: block;
+    color: #f4c455;
+    margin-bottom: 7px;
 }
 
-.featured-card h3 {
-    color: #d4af37;
-    margin: 10px 0;
-}
-
-/* =========================================================
-   SEARCH
-========================================================= */
-
-.search-section {
-    text-align: center;
-}
-
-#companySearch {
-    width: 100%;
-    max-width: 700px;
-
-    padding: 17px 22px;
-
-    border-radius: 50px;
-
-    border:
-        2px solid #8d752d;
-
-    outline: none;
-
-    background: #080808;
-
-    color: #fff;
-
-    font-size: 16px;
-}
-
-#companySearch:focus {
-    border-color: #d4af37;
-
-    box-shadow:
-        0 0 20px rgba(212,175,55,.2);
+.featured-card span {
+    color: #c9bfd5;
+    font-size: 13px;
 }
 
 /* =========================================================
-   FILTERS
+   NO PHONE FEATURE
 ========================================================= */
 
-.filter-buttons {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+.no-phone {
+    background:
+        linear-gradient(135deg, #f4c455, #dca62f);
+    color: #1c1420;
+    border-radius: 28px;
+    padding: 40px;
+    margin: 20px 0 70px;
+}
 
+.no-phone-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: center;
+}
+
+.no-phone h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.no-phone p {
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.no-phone-list {
+    display: grid;
     gap: 10px;
-
-    margin-top: 20px;
 }
 
-.filter-btn {
-    border:
-        1px solid #806b2a;
-
-    padding: 10px 18px;
-
-    border-radius: 50px;
-
-    background: #151515;
-
-    color: #d4af37;
-
+.no-phone-list div {
+    background: rgba(255,255,255,.3);
+    padding: 13px;
+    border-radius: 10px;
     font-weight: 700;
-
-    cursor: pointer;
-
-    transition: .3s;
-}
-
-.filter-btn:hover,
-.filter-btn.active {
-    background: #d4af37;
-
-    color: #080808;
 }
 
 /* =========================================================
-   CATEGORIES
+   JOB DIRECTORY
 ========================================================= */
+
+.directory {
+    background: #f7f4f8;
+    color: #26172d;
+    padding: 70px 0;
+}
+
+.directory .section-heading p {
+    color: #765e7d;
+}
+
+.category-section {
+    margin-bottom: 45px;
+}
 
 .category-title {
-    text-align: center;
-
-    color: #d4af37;
-
-    font-size: 26px;
-
-    margin-top: 0;
+    font-size: 25px;
+    margin-bottom: 18px;
+    color: #2b1934;
 }
 
-.category-title span {
-    display: block;
-
-    color: #a99b85;
-
-    font-size: 14px;
-
-    font-weight: 400;
-
-    margin-top: 8px;
-}
-
-/* =========================================================
-   COMPANY CARDS
-========================================================= */
-
-.company-grid {
+.job-grid {
     display: grid;
-
-    grid-template-columns:
-        repeat(auto-fit,minmax(230px,1fr));
-
-    gap: 15px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 13px;
 }
 
-.company-card {
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: space-between;
-
-    min-height: 135px;
-
-    padding: 20px;
-
-    text-decoration: none;
-
-    color: #f4ead7;
-
-    background:
-        linear-gradient(
-            145deg,
-            #191919,
-            #0b0b0b
-        );
-
-    border:
-        1px solid #66531f;
-
-    border-radius: 18px;
-
-    transition: .3s;
-
+.job-card {
     position: relative;
-
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 135px;
+    padding: 18px;
+    text-decoration: none;
+    background: white;
+    border: 1px solid #eaddec;
+    border-radius: 16px;
+    transition: .25s;
 }
 
-.company-card::after {
-    content: "✦";
-
-    position: absolute;
-
-    right: 15px;
-
-    top: 10px;
-
-    color: #d4af37;
-
-    font-size: 20px;
+.job-card:hover {
+    transform: translateY(-4px);
+    border-color: #d19a1f;
+    box-shadow: 0 12px 25px rgba(42,22,50,.1);
 }
 
-.company-card:hover {
-    transform:
-        translateY(-6px)
-        scale(1.01);
-
-    border-color: #d4af37;
-
-    box-shadow:
-        0 12px 30px rgba(212,175,55,.2);
-}
-
-.company-number {
-    color: #a58a36;
-
-    font-size: 12px;
-
-    font-weight: 700;
-}
-
-.company-name {
-    color: #fff;
-
-    font-size: 17px;
-
+.job-number {
+    font-size: 11px;
+    color: #9c7f9f;
     font-weight: 800;
-
-    margin: 8px 0;
 }
 
-.apply {
-    color: #d4af37;
+.job-name {
+    font-size: 16px;
+    font-weight: 900;
+    margin: 10px 0;
+    color: #2c1835;
+}
 
+.apply-link {
+    color: #a16d00;
     font-size: 13px;
-
-    font-weight: 800;
+    font-weight: 900;
 }
 
 /* =========================================================
@@ -545,346 +529,251 @@ body::before {
 ========================================================= */
 
 .no-phone-section {
-    border:
-        2px solid #d4af37;
-
-    background:
-        linear-gradient(
-            145deg,
-            #15120a,
-            #080808
-        );
+    background: #fff;
+    padding: 70px 0;
+    color: #26172d;
 }
 
-.no-phone-badge {
-    display: inline-block;
-
-    padding: 7px 14px;
-
-    border-radius: 50px;
-
-    background: #d4af37;
-
-    color: #080808;
-
-    font-size: 12px;
-
-    font-weight: 900;
-}
-
-.no-phone-card {
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: space-between;
-
-    min-height: 170px;
-
-    padding: 22px;
-
-    border-radius: 18px;
-
-    text-decoration: none;
-
-    color: #eee;
-
-    background:
-        linear-gradient(
-            145deg,
-            #1c1c1c,
-            #090909
-        );
-
-    border:
-        1px solid #806b2a;
-
-    transition: .3s;
-}
-
-.no-phone-card:hover {
-    transform: translateY(-6px);
-
-    border-color: #f1d477;
-
-    box-shadow:
-        0 10px 30px rgba(212,175,55,.25);
-}
-
-.no-phone-card h3 {
-    color: #d4af37;
-}
-
-/* =========================================================
-   RESOURCES
-========================================================= */
-
-.resource-grid {
+.no-phone-job-grid {
     display: grid;
-
-    grid-template-columns:
-        repeat(auto-fit,minmax(220px,1fr));
-
+    grid-template-columns: repeat(3, 1fr);
     gap: 15px;
 }
 
-.resource-card {
-    text-decoration: none;
-
-    color: #ddd;
-
-    background: #121212;
-
-    border:
-        1px solid #5d4b1d;
-
-    padding: 20px;
-
+.no-phone-job {
+    border: 1px solid #eaddec;
     border-radius: 18px;
-
-    transition: .3s;
+    padding: 22px;
+    background: #fff;
+    transition: .25s;
 }
 
-.resource-card:hover {
-    border-color: #d4af37;
-
+.no-phone-job:hover {
     transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(42,22,50,.1);
+    border-color: #d19a1f;
 }
 
-.resource-card h3 {
-    color: #d4af37;
+.no-phone-job h3 {
+    margin-bottom: 9px;
+}
+
+.no-phone-job p {
+    color: #765e7d;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.no-phone-job a {
+    display: inline-block;
+    text-decoration: none;
+    color: #8a5d00;
+    font-weight: 900;
 }
 
 /* =========================================================
    TRACKER
 ========================================================= */
 
+.tracker {
+    padding: 70px 0;
+}
+
+.tracker-box {
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 25px;
+    padding: 30px;
+}
+
 .tracker-form {
     display: grid;
-
-    grid-template-columns:
-        repeat(auto-fit,minmax(180px,1fr));
-
+    grid-template-columns: 1fr 1fr 1fr auto;
     gap: 10px;
 }
 
 .tracker-form input,
 .tracker-form select {
-
     padding: 13px;
-
     border-radius: 10px;
-
-    border:
-        1px solid #806b2a;
-
-    background: #080808;
-
-    color: white;
-
+    border: 1px solid #ddd;
     outline: none;
 }
 
 .tracker-form button {
-
     border: none;
-
     border-radius: 10px;
-
-    background: #d4af37;
-
-    color: #080808;
-
+    background: #f4c455;
+    color: #201522;
+    padding: 13px 20px;
     font-weight: 900;
-
     cursor: pointer;
-
-    padding: 13px;
 }
 
-.tracker-form button:hover {
-    background: #f1d477;
+.tracker-table-wrap {
+    overflow-x: auto;
 }
 
 .tracker-table {
-
     width: 100%;
-
-    margin-top: 20px;
-
+    margin-top: 25px;
     border-collapse: collapse;
+    min-width: 600px;
 }
 
 .tracker-table th,
 .tracker-table td {
-
-    padding: 12px;
-
-    border-bottom:
-        1px solid #332b18;
-
+    padding: 14px;
     text-align: left;
+    border-bottom: 1px solid rgba(255,255,255,.1);
 }
 
 .tracker-table th {
-
-    color: #d4af37;
-
-    background: #171717;
+    color: #f4c455;
 }
 
 .delete-btn {
-
     border: none;
-
-    background: #3a2f16;
-
-    color: #f1d477;
-
-    padding: 7px 10px;
-
-    border-radius: 8px;
-
+    background: #8d345f;
+    color: white;
+    padding: 7px 12px;
+    border-radius: 7px;
     cursor: pointer;
+}
+
+/* =========================================================
+   RESOURCES
+========================================================= */
+
+.resources {
+    background: #fff;
+    color: #28172f;
+    padding: 70px 0;
+}
+
+.resource-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 15px;
+}
+
+.resource-card {
+    text-decoration: none;
+    border: 1px solid #eaddec;
+    border-radius: 18px;
+    padding: 25px;
+    transition: .25s;
+}
+
+.resource-card:hover {
+    border-color: #d19a1f;
+    transform: translateY(-4px);
+}
+
+.resource-card h3 {
+    margin-bottom: 10px;
+}
+
+.resource-card p {
+    color: #765e7d;
+    line-height: 1.6;
 }
 
 /* =========================================================
    SCAM WARNING
 ========================================================= */
 
-.scam-warning {
-
-    background:
-        linear-gradient(
-            145deg,
-            #1d1710,
-            #0a0a0a
-        );
-
-    border:
-        1px solid #d4af37;
-
+.scam {
+    margin: 70px auto;
+    padding: 35px;
+    max-width: 1000px;
+    border: 1px solid rgba(244,196,85,.25);
+    background: rgba(244,196,85,.06);
     border-radius: 25px;
-
-    padding: 28px;
-
-    margin: 30px 0;
 }
 
-.scam-warning h2 {
-    color: #d4af37;
-
-    text-align: center;
+.scam h2 {
+    color: #f4c455;
+    margin-bottom: 20px;
 }
 
-.scam-warning li {
-    margin: 10px 0;
-
-    line-height: 1.6;
+.scam ul {
+    padding-left: 22px;
+    color: #d2c7db;
+    line-height: 1.9;
 }
 
 /* =========================================================
    ABOUT
 ========================================================= */
 
-.about-section {
+.about {
     text-align: center;
+    padding: 70px 20px;
 }
 
-.about-section p {
+.about-content {
     max-width: 800px;
+    margin: auto;
+}
 
-    margin: 12px auto;
+.about h2 {
+    font-size: 34px;
+    margin-bottom: 20px;
+}
 
-    color: #c8bba8;
-
-    line-height: 1.8;
+.about p {
+    color: #c9bfd5;
+    line-height: 1.9;
+    margin-bottom: 12px;
 }
 
 /* =========================================================
    CONTACT
 ========================================================= */
 
-.contact-section {
-
-    text-align: center;
-
+.contact {
     background:
-        linear-gradient(
-            135deg,
-            #17120a,
-            #080808
-        );
-
-    border:
-        1px solid #d4af37;
-
-    border-radius: 25px;
-
-    padding: 35px;
-
-    margin: 30px 0;
+        linear-gradient(135deg,#f4c455,#dca62f);
+    color: #211521;
+    text-align: center;
+    padding: 60px 20px;
 }
 
-.contact-section h2 {
-    color: #d4af37;
+.contact h2 {
+    font-size: 35px;
+    margin-bottom: 12px;
 }
 
-.contact-buttons {
-
-    display: flex;
-
-    justify-content: center;
-
-    flex-wrap: wrap;
-
-    gap: 12px;
-
-    margin-top: 20px;
+.contact p {
+    margin-bottom: 25px;
 }
 
-.contact-buttons a {
-
+.contact a {
+    display: inline-block;
     text-decoration: none;
-
-    background: #d4af37;
-
-    color: #080808;
-
-    padding: 13px 22px;
-
-    border-radius: 50px;
-
+    background: #211521;
+    color: #f4c455;
+    padding: 14px 25px;
+    border-radius: 12px;
     font-weight: 900;
-
-    transition: .3s;
-}
-
-.contact-buttons a:hover {
-
-    background: #f1d477;
-
-    transform:
-        translateY(-3px);
 }
 
 /* =========================================================
    FOOTER
 ========================================================= */
 
-.footer {
-
+footer {
+    background: #0b0910;
     text-align: center;
-
-    color: #a99b85;
-
-    padding: 30px 15px;
-
-    font-size: 14px;
+    padding: 35px 20px;
+    color: #96899f;
+    line-height: 1.8;
 }
 
-.footer strong {
-    color: #d4af37;
+footer strong {
+    color: #f4c455;
 }
 
 /* =========================================================
@@ -892,987 +781,979 @@ body::before {
 ========================================================= */
 
 #topButton {
-
     position: fixed;
-
-    bottom: 20px;
-
     right: 20px;
-
-    width: 52px;
-
-    height: 52px;
-
-    border: 1px solid #f1d477;
-
+    bottom: 20px;
+    width: 48px;
+    height: 48px;
+    border: none;
     border-radius: 50%;
-
-    background: #d4af37;
-
-    color: #080808;
-
-    font-size: 22px;
-
-    font-weight: bold;
-
+    background: #f4c455;
+    color: #201522;
+    font-size: 20px;
+    font-weight: 900;
     cursor: pointer;
-
     display: none;
-
-    z-index: 1000;
+    z-index: 999;
 }
 
 /* =========================================================
    MOBILE
 ========================================================= */
 
-@media(max-width:600px) {
+@media(max-width:1000px) {
 
-    body {
-        padding:
-            10px
-            8px
-            50px;
-    }
-
-    .hero {
-        padding:
-            40px
-            15px;
-    }
-
-    .hero h1 {
-        font-size: 32px;
-    }
-
-    .section {
-        padding: 20px 15px;
-    }
-
-    .company-grid {
+    .hero-grid,
+    .no-phone-grid {
         grid-template-columns: 1fr;
     }
 
-    .tracker-table {
-        font-size: 12px;
+    .category-grid {
+        grid-template-columns: repeat(2,1fr);
     }
 
-    .tracker-table th,
-    .tracker-table td {
-        padding: 8px 5px;
+    .featured-grid {
+        grid-template-columns: repeat(3,1fr);
     }
 
+    .job-grid {
+        grid-template-columns: repeat(3,1fr);
+    }
+
+    .no-phone-job-grid,
+    .resource-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .tracker-form {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media(max-width:650px) {
+
+    .navbar {
+        padding: 12px 0;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        justify-content: flex-start;
+    }
+
+    .hero {
+        padding-top: 55px;
+    }
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+
+    .search-row {
+        flex-direction: column;
+    }
+
+    .search-row button {
+        padding: 14px;
+    }
+
+    .category-grid,
+    .featured-grid,
+    .job-grid,
+    .no-phone-job-grid,
+    .resource-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tracker-form {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .no-phone {
+        padding: 28px 20px;
+    }
 }
 
 </style>
-
 </head>
 
 <body>
 
-<div class="page">
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
 
-<!-- =====================================================
+<header>
+
+<div class="navbar">
+
+<a href="#" class="logo">
+✨ Joycelyn's Job Hub
+<span>Remote Work • Career • Opportunity</span>
+</a>
+
+<nav class="nav-links">
+
+<a href="#jobs">Jobs</a>
+<a href="#no-phone">No-Phone Jobs</a>
+<a href="#tracker">Tracker</a>
+<a href="#resources">Resources</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+<!-- =========================================================
      HERO
-===================================================== -->
+========================================================= -->
+
+<main>
 
 <section class="hero">
 
-<h1>Joycelyn's Work From Home Job Hub</h1>
+<div class="container">
+
+<div class="hero-grid">
+
+<div>
+
+<div class="badge">
+✨ Your Remote Career Starts Here
+</div>
+
+<h1>
+Find Your Next
+<span>Work-From-Home</span>
+Opportunity.
+</h1>
 
 <p>
-Your luxury destination for discovering legitimate work-from-home career opportunities.
-Explore trusted employers, find flexible remote work, discover no-phone positions,
-prepare for your next interview, and keep your job applications organized—all in one place.
+Welcome to Joycelyn's Work From Home Job Hub — a convenient place to discover
+remote career opportunities, explore trusted employers, find flexible work,
+and organize your job search.
 </p>
 
 <div class="hero-buttons">
 
-<a href="#no-phone">
-💬 Find No-Phone Jobs
+<a href="#jobs" class="btn btn-primary">
+🔎 Explore Jobs
 </a>
 
-<a href="#jobs">
-💼 Browse Remote Jobs
+<a href="#no-phone" class="btn btn-secondary">
+💬 No-Phone Jobs
 </a>
 
-<a href="#tracker">
-📊 Track Applications
-</a>
+</div>
+
+</div>
+
+
+<div class="hero-card">
+
+<div class="hero-card-title">
+💎 Your Job Search Dashboard
+</div>
+
+<div class="stat">
+<span>Employer Directory</span>
+<strong>60+</strong>
+</div>
+
+<div class="stat">
+<span>Job Categories</span>
+<strong>5+</strong>
+</div>
+
+<div class="stat">
+<span>Application Tracker</span>
+<strong>✓</strong>
+</div>
+
+<div class="stat">
+<span>Career Resources</span>
+<strong>📚</strong>
+</div>
+
+</div>
+
+</div>
 
 </div>
 
 </section>
 
-<!-- =====================================================
-     NAVIGATION
-===================================================== -->
 
-<nav class="quick-nav">
-
-<a href="#featured">⭐ Featured</a>
-
-<a href="#no-phone">💬 No-Phone Jobs</a>
-
-<a href="#bpo">📞 Customer Service</a>
-
-<a href="#contractor">💻 Flexible Work</a>
-
-<a href="#healthcare">🏥 Healthcare</a>
-
-<a href="#corporate">💼 Corporate</a>
-
-<a href="#resources">📚 Resources</a>
-
-<a href="#tracker">📊 Tracker</a>
-
-</nav>
-
-<!-- =====================================================
-     FEATURED EMPLOYERS
-===================================================== -->
-
-<section class="section" id="featured">
-
-<h2 class="section-heading">
-⭐ Featured Remote Employers
-</h2>
-
-<p class="section-subtitle">
-Click any company to visit its career website and explore current opportunities.
-</p>
-
-<div class="featured-grid">
-
-<a class="featured-card"
-href="https://www.ttecjobs.com/en/work-from-home"
-target="_blank">
-
-<div class="featured-icon">📞</div>
-
-<h3>TTEC</h3>
-
-<p>Customer Experience & Remote Support</p>
-
-</a>
-
-<a class="featured-card"
-href="https://vxi.com/careers/"
-target="_blank">
-
-<div class="featured-icon">💻</div>
-
-<h3>VXI Global</h3>
-
-<p>Customer Service & Support</p>
-
-</a>
-
-<a class="featured-card"
-href="https://jobs.cvshealth.com/us/en/search-results?keywords=Remote"
-target="_blank">
-
-<div class="featured-icon">🏥</div>
-
-<h3>CVS Health</h3>
-
-<p>Healthcare & Customer Care</p>
-
-</a>
-
-<a class="featured-card"
-href="https://www.amazon.jobs/en/locations/virtual-locations"
-target="_blank">
-
-<div class="featured-icon">📦</div>
-
-<h3>Amazon</h3>
-
-<p>Virtual & Corporate Roles</p>
-
-</a>
-
-<a class="featured-card"
-href="https://jobs.concentrix.com/job-search/?country=United+States+of+America&wah=1"
-target="_blank">
-
-<div class="featured-icon">🎧</div>
-
-<h3>Concentrix</h3>
-
-<p>Customer Experience</p>
-
-</a>
-
-<a class="featured-card"
-href="https://jobs.workingsolutions.com/"
-target="_blank">
-
-<div class="featured-icon">🏠</div>
-
-<h3>Working Solutions</h3>
-
-<p>Flexible Remote Opportunities</p>
-
-</a>
-
-</div>
-
-</section>
-
-<!-- =====================================================
+<!-- =========================================================
      SEARCH
-===================================================== -->
+========================================================= -->
 
-<section class="section search-section" id="jobs">
+<div class="container">
 
-<h2 class="section-heading">
-🔎 Find Your Remote Opportunity
-</h2>
+<section class="search-panel">
 
-<p class="section-subtitle">
-Search our employer directory by company name.
+<h2>🔍 Search the Job Directory</h2>
+
+<p>
+Search for employers by company name or use the category filters below.
 </p>
+
+<div class="search-row">
 
 <input
 type="text"
 id="companySearch"
-placeholder="Search TTEC, CVS, Amazon, healthcare..."
+placeholder="Search employers like TTEC, CVS, Amazon..."
 onkeyup="searchCompanies()"
-
 >
 
-<div class="filter-buttons">
+<button onclick="clearSearch()">
+Clear
+</button>
 
-<button class="filter-btn active"
-onclick="filterCategory('all',this)">
-All Companies </button>
+</div>
 
-<button class="filter-btn"
-onclick="filterCategory('bpo',this)">
-Customer Service </button>
+<div class="filter-row">
 
-<button class="filter-btn"
-onclick="filterCategory('contractor',this)">
-Flexible Work </button>
+<button class="filter-btn active" onclick="filterCategory('all',this)">
+All
+</button>
 
-<button class="filter-btn"
-onclick="filterCategory('healthcare',this)">
-Healthcare </button>
+<button class="filter-btn" onclick="filterCategory('bpo',this)">
+Customer Service
+</button>
 
-<button class="filter-btn"
-onclick="filterCategory('corporate',this)">
-Corporate & Tech </button>
+<button class="filter-btn" onclick="filterCategory('contractor',this)">
+Flexible Work
+</button>
+
+<button class="filter-btn" onclick="filterCategory('healthcare',this)">
+Healthcare
+</button>
+
+<button class="filter-btn" onclick="filterCategory('corporate',this)">
+Corporate
+</button>
 
 </div>
 
 </section>
 
-<!-- =====================================================
-     NO PHONE JOBS
-===================================================== -->
+</div>
 
-<section class="section no-phone-section" id="no-phone">
 
-<h2 class="section-heading">
-💬 No-Phone Remote Work
-</h2>
+<!-- =========================================================
+     CATEGORIES
+========================================================= -->
 
-<p class="section-subtitle">
-Looking for work-from-home opportunities that may involve chat, email, messaging,
-content moderation, data, or other non-voice work? Explore these companies and
-check their official career pages for current openings.
-</p>
+<section class="section">
 
-<div class="company-grid">
+<div class="container">
 
-<a class="no-phone-card"
-href="https://www.telusdigital.com/careers"
-target="_blank">
+<div class="section-heading">
 
-<span class="no-phone-badge">NON-VOICE POSSIBILITIES</span>
-
-<h3>TELUS Digital</h3>
-
+<div>
+<h2>Explore Career Paths</h2>
 <p>
-Explore digital, AI, data, content, and online support opportunities.
+Choose a category to jump directly to the type of remote work you're looking for.
 </p>
+</div>
 
-<span class="apply">
-View Careers ↗
-</span>
+</div>
 
+<div class="category-grid">
+
+<a href="#bpo" class="category-card">
+<div class="category-icon">🎧</div>
+<h3>Customer Service</h3>
+<p>Call center, customer care, technical support, and contact center roles.</p>
 </a>
 
-<a class="no-phone-card"
-href="https://jobs.concentrix.com/"
-target="_blank">
-
-<span class="no-phone-badge">CHECK CURRENT OPENINGS</span>
-
-<h3>Concentrix</h3>
-
-<p>
-Search for remote customer experience, chat, digital support, and other roles.
-</p>
-
-<span class="apply">
-View Careers ↗
-</span>
-
+<a href="#no-phone" class="category-card">
+<div class="category-icon">💬</div>
+<h3>No-Phone Work</h3>
+<p>Explore opportunities that may focus on chat, email, data, and online support.</p>
 </a>
 
-<a class="no-phone-card"
-href="https://www.amazon.jobs/en/locations/virtual-locations"
-target="_blank">
-
-<span class="no-phone-badge">VIRTUAL ROLES</span>
-
-<h3>Amazon</h3>
-
-<p>
-Explore virtual career opportunities, including corporate and technology roles.
-</p>
-
-<span class="apply">
-View Careers ↗
-</span>
-
+<a href="#healthcare" class="category-card">
+<div class="category-icon">🏥</div>
+<h3>Healthcare</h3>
+<p>Healthcare, insurance, member services, scheduling, and support careers.</p>
 </a>
 
-<a class="no-phone-card"
-href="https://www.indeed.com/q-remote-chat-support-jobs.html"
-target="_blank">
-
-<span class="no-phone-badge">JOB SEARCH</span>
-
-<h3>Remote Chat Support</h3>
-
-<p>
-Search current listings for remote chat and text-based customer support positions.
-</p>
-
-<span class="apply">
-Search Jobs ↗
-</span>
-
-</a>
-
-<a class="no-phone-card"
-href="https://www.flexjobs.com/"
-target="_blank">
-
-<span class="no-phone-badge">FLEXIBLE JOB SEARCH</span>
-
-<h3>FlexJobs</h3>
-
-<p>
-Explore remote and flexible job listings and search for non-phone opportunities.
-</p>
-
-<span class="apply">
-Explore Jobs ↗
-</span>
-
-</a>
-
-<a class="no-phone-card"
-href="https://www.linkedin.com/jobs/"
-target="_blank">
-
-<span class="no-phone-badge">JOB SEARCH</span>
-
-<h3>LinkedIn Jobs</h3>
-
-<p>
-Search for remote email support, chat support, data, and administrative jobs.
-</p>
-
-<span class="apply">
-Search Jobs ↗
-</span>
-
+<a href="#corporate" class="category-card">
+<div class="category-icon">💼</div>
+<h3>Corporate & Tech</h3>
+<p>Explore technology, finance, banking, travel, retail, and corporate careers.</p>
 </a>
 
 </div>
 
-<p style="text-align:center;color:#a99b85;margin-top:25px;font-size:13px;">
-⚠️ Important: A company may offer both phone and non-phone roles. Always read the
-specific job description carefully to confirm whether phone calls are required.
-</p>
+</div>
 
 </section>
 
-<!-- =====================================================
-     BPO DIRECTORY
-===================================================== -->
 
-<section class="section category" id="bpo" data-category="bpo">
+<!-- =========================================================
+     FEATURED EMPLOYERS
+========================================================= -->
 
-<h2 class="category-title">
-📞 BPO & Customer Service
+<section class="section">
 
-<span>
-Customer support, call center, technical support, and contact center opportunities
-</span>
-</h2>
+<div class="container">
 
-<div class="company-grid">
+<div class="section-heading">
 
-<a class="company-card" href="https://www.ttecjobs.com/en/work-from-home" target="_blank">
-<span class="company-number">#1</span>
-<span class="company-name">TTEC</span>
-<span class="apply">Apply Now ↗</span>
+<div>
+<h2>⭐ Featured Employers</h2>
+<p>
+Visit official employer career pages to review current openings and requirements.
+</p>
+</div>
+
+</div>
+
+<div class="featured-grid">
+
+<a class="featured-card" href="https://www.ttecjobs.com/en/work-from-home" target="_blank">
+<strong>TTEC</strong>
+<span>Customer Experience</span>
 </a>
 
-<a class="company-card" href="https://teleperformance.searchgreatcareers.com/location/remote-jobs/41925/1000000000100/2" target="_blank">
-<span class="company-number">#2</span>
-<span class="company-name">Teleperformance</span>
-<span class="apply">Apply Now ↗</span>
+<a class="featured-card" href="https://vxi.com/careers/" target="_blank">
+<strong>VXI Global</strong>
+<span>Customer Support</span>
 </a>
 
-<a class="company-card" href="https://jobs.concentrix.com/job-search/?country=United+States+of+America&wah=1" target="_blank">
-<span class="company-number">#3</span>
-<span class="company-name">Concentrix</span>
-<span class="apply">Apply Now ↗</span>
+<a class="featured-card" href="https://jobs.cvshealth.com/us/en/search-results?keywords=Remote" target="_blank">
+<strong>CVS Health</strong>
+<span>Healthcare</span>
 </a>
 
-<a class="company-card" href="https://jobs.foundever.com/content/Find-a-Job/" target="_blank">
-<span class="company-number">#4</span>
-<span class="company-name">Foundever</span>
-<span class="apply">Apply Now ↗</span>
+<a class="featured-card" href="https://www.amazon.jobs/en/locations/virtual-locations" target="_blank">
+<strong>Amazon</strong>
+<span>Virtual Careers</span>
 </a>
 
-<a class="company-card" href="https://www.alorica.com/careers/" target="_blank">
-<span class="company-number">#5</span>
-<span class="company-name">Alorica</span>
-<span class="apply">Apply Now ↗</span>
-</a>
-
-<a class="company-card" href="https://jobs.sutherlandglobal.com/" target="_blank">
-<span class="company-number">#6</span>
-<span class="company-name">Sutherland</span>
-<span class="apply">Apply Now ↗</span>
-</a>
-
-<a class="company-card" href="https://vxi.com/careers/" target="_blank">
-<span class="company-number">#7</span>
-<span class="company-name">VXI Global</span>
-<span class="apply">Apply Now ↗</span>
-</a>
-
-<a class="company-card" href="https://www.conduent.com/customer-experience-management/work-at-home/" target="_blank">
-<span class="company-number">#8</span>
-<span class="company-name">Conduent</span>
-<span class="apply">Apply Now ↗</span>
-</a>
-
-<a class="company-card" href="https://taskus.com/careers/" target="_blank">
-<span class="company-number">#9</span>
-<span class="company-name">TaskUs</span>
-<span class="apply">Apply Now ↗</span>
-</a>
-
-<a class="company-card" href="https://www.weareeverise.com/careers/" target="_blank">
-<span class="company-number">#10</span>
-<span class="company-name">Everise</span>
-<span class="apply">Apply Now ↗</span>
-</a>
-
-<a class="company-card" href="https://www.qualfon.com/careers/" target="_blank">
-<span class="company-number">#11</span>
-<span class="company-name">Qualfon</span>
-<span class="apply">Apply Now ↗</span>
-</a>
-
-<a class="company-card" href="https://intouchcx.com/careers/" target="_blank">
-<span class="company-number">#12</span>
-<span class="company-name">IntouchCX</span>
-<span class="apply">Apply Now ↗</span>
-</a>
-
-<a class="company-card" href="https://resultscx.com/careers/" target="_blank">
-<span class="company-number">#13</span>
-<span class="company-name">ResultsCX</span>
-<span class="apply">Apply Now ↗</span>
-</a>
-
-<a class="company-card" href="https://probecx.com/careers/" target="_blank">
-<span class="company-number">#14</span>
-<span class="company-name">Probe CX</span>
-<span class="apply">Apply Now ↗</span>
-</a>
-
-<a class="company-card" href="https://www.iqor.com/careers" target="_blank">
-<span class="company-number">#15</span>
-<span class="company-name">iQor</span>
-<span class="apply">Apply Now ↗</span>
-</a>
-
-<a class="company-card" href="https://www.firstsource.com/careers/" target="_blank">
-<span class="company-number">#16</span>
-<span class="company-name">Firstsource</span>
-<span class="apply">Apply Now ↗</span>
-</a>
-
-<a class="company-card" href="https://www.exlservice.com/careers" target="_blank">
-<span class="company-number">#17</span>
-<span class="company-name">EXL</span>
-<span class="apply">Apply Now ↗</span>
-</a>
-
-<a class="company-card" href="https://www.genpact.com/careers" target="_blank">
-<span class="company-number">#18</span>
-<span class="company-name">Genpact</span>
-<span class="apply">Apply Now ↗</span>
-</a>
-
-<a class="company-card" href="https://www.wns.com/careers" target="_blank">
-<span class="company-number">#19</span>
-<span class="company-name">WNS</span>
-<span class="apply">Apply Now ↗</span>
-</a>
-
-<a class="company-card" href="https://maximus.com/careers" target="_blank">
-<span class="company-number">#20</span>
-<span class="company-name">Maximus</span>
-<span class="apply">Apply Now ↗</span>
+<a class="featured-card" href="https://jobs.concentrix.com/job-search/?country=United+States+of+America&wah=1" target="_blank">
+<strong>Concentrix</strong>
+<span>Customer Experience</span>
 </a>
 
 </div>
+
+</div>
+
 </section>
 
-<!-- =====================================================
-     CONTRACTOR
-===================================================== -->
 
-<section class="section category" id="contractor" data-category="contractor">
+<!-- =========================================================
+     NO PHONE FEATURE
+========================================================= -->
 
-<h2 class="category-title">
+<div class="container">
+
+<section class="no-phone" id="no-phone">
+
+<div class="no-phone-grid">
+
+<div>
+
+<h2>💬 Looking for a Job Without Phone Calls?</h2>
+
+<p>
+This section is designed to help job seekers explore remote opportunities
+that may involve chat support, email support, online moderation, data entry,
+content review, or other non-phone work.
+</p>
+
+<p>
+Always read the current job description carefully because duties, schedules,
+and phone requirements can change.
+</p>
+
+<a href="#no-phone-jobs" class="btn btn-secondary">
+Explore No-Phone Opportunities
+</a>
+
+</div>
+
+<div class="no-phone-list">
+
+<div>💬 Chat Support</div>
+<div>📧 Email Support</div>
+<div>⌨️ Data Entry</div>
+<div>🖥️ Online Support</div>
+<div>🔎 Content Review</div>
+
+</div>
+
+</div>
+
+</section>
+
+</div>
+
+
+<!-- =========================================================
+     JOB DIRECTORY
+========================================================= -->
+
+<section class="directory" id="jobs">
+
+<div class="container">
+
+<div class="section-heading">
+
+<div>
+<h2>💼 Remote Employer Directory</h2>
+
+<p>
+Click any employer to visit its career website. Job availability and remote
+eligibility may vary by position and location.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- BPO -->
+
+<div class="category-section" id="bpo" data-category="bpo">
+
+<h3 class="category-title">
+📞 Customer Service & BPO
+</h3>
+
+<div class="job-grid">
+
+<a class="job-card" href="https://www.ttecjobs.com/en/work-from-home" target="_blank">
+<span class="job-number">#1</span>
+<span class="job-name">TTEC</span>
+<span class="apply-link">Visit Careers ↗</span>
+</a>
+
+<a class="job-card" href="https://teleperformance.searchgreatcareers.com/location/remote-jobs/41925/1000000000100/2" target="_blank">
+<span class="job-number">#2</span>
+<span class="job-name">Teleperformance</span>
+<span class="apply-link">Visit Careers ↗</span>
+</a>
+
+<a class="job-card" href="https://jobs.concentrix.com/job-search/?country=United+States+of+America&wah=1" target="_blank">
+<span class="job-number">#3</span>
+<span class="job-name">Concentrix</span>
+<span class="apply-link">Visit Careers ↗</span>
+</a>
+
+<a class="job-card" href="https://jobs.foundever.com/content/Find-a-Job/" target="_blank">
+<span class="job-number">#4</span>
+<span class="job-name">Foundever</span>
+<span class="apply-link">Visit Careers ↗</span>
+</a>
+
+<a class="job-card" href="https://www.alorica.com/careers/" target="_blank">
+<span class="job-number">#5</span>
+<span class="job-name">Alorica</span>
+<span class="apply-link">Visit Careers ↗</span>
+</a>
+
+<a class="job-card" href="https://jobs.sutherlandglobal.com/" target="_blank">
+<span class="job-number">#6</span>
+<span class="job-name">Sutherland</span>
+<span class="apply-link">Visit Careers ↗</span>
+</a>
+
+<a class="job-card" href="https://vxi.com/careers/" target="_blank">
+<span class="job-number">#7</span>
+<span class="job-name">VXI Global</span>
+<span class="apply-link">Visit Careers ↗</span>
+</a>
+
+<a class="job-card" href="https://www.conduent.com/customer-experience-management/work-at-home/" target="_blank">
+<span class="job-number">#8</span>
+<span class="job-name">Conduent</span>
+<span class="apply-link">Visit Careers ↗</span>
+</a>
+
+<a class="job-card" href="https://taskus.com/careers/" target="_blank">
+<span class="job-number">#9</span>
+<span class="job-name">TaskUs</span>
+<span class="apply-link">Visit Careers ↗</span>
+</a>
+
+<a class="job-card" href="https://www.weareeverise.com/careers/" target="_blank">
+<span class="job-number">#10</span>
+<span class="job-name">Everise</span>
+<span class="apply-link">Visit Careers ↗</span>
+</a>
+
+<a class="job-card" href="https://www.qualfon.com/careers/" target="_blank">
+<span class="job-number">#11</span>
+<span class="job-name">Qualfon</span>
+<span class="apply-link">Visit Careers ↗</span>
+</a>
+
+<a class="job-card" href="https://intouchcx.com/careers/" target="_blank">
+<span class="job-number">#12</span>
+<span class="job-name">IntouchCX</span>
+<span class="apply-link">Visit Careers ↗</span>
+</a>
+
+<a class="job-card" href="https://resultscx.com/careers/" target="_blank">
+<span class="job-number">#13</span>
+<span class="job-name">ResultsCX</span>
+<span class="apply-link">Visit Careers ↗</span>
+</a>
+
+<a class="job-card" href="https://probecx.com/careers/" target="_blank">
+<span class="job-number">#14</span>
+<span class="job-name">Probe CX</span>
+<span class="apply-link">Visit Careers ↗</span>
+</a>
+
+<a class="job-card" href="https://www.iqor.com/careers" target="_blank">
+<span class="job-number">#15</span>
+<span class="job-name">iQor</span>
+<span class="apply-link">Visit Careers ↗</span>
+</a>
+
+<a class="job-card" href="https://www.firstsource.com/careers/" target="_blank">
+<span class="job-number">#16</span>
+<span class="job-name">Firstsource</span>
+<span class="apply-link">Visit Careers ↗</span>
+</a>
+
+<a class="job-card" href="https://www.exlservice.com/careers" target="_blank">
+<span class="job-number">#17</span>
+<span class="job-name">EXL</span>
+<span class="apply-link">Visit Careers ↗</span>
+</a>
+
+<a class="job-card" href="https://www.genpact.com/careers" target="_blank">
+<span class="job-number">#18</span>
+<span class="job-name">Genpact</span>
+<span class="apply-link">Visit Careers ↗</span>
+</a>
+
+<a class="job-card" href="https://www.wns.com/careers" target="_blank">
+<span class="job-number">#19</span>
+<span class="job-name">WNS</span>
+<span class="apply-link">Visit Careers ↗</span>
+</a>
+
+<a class="job-card" href="https://maximus.com/careers" target="_blank">
+<span class="job-number">#20</span>
+<span class="job-name">Maximus</span>
+<span class="apply-link">Visit Careers ↗</span>
+</a>
+
+</div>
+</div>
+
+
+<!-- CONTRACTOR -->
+
+<div class="category-section" id="contractor" data-category="contractor">
+
+<h3 class="category-title">
 💻 Contractor & Flexible Work
+</h3>
 
-<span>
-Flexible customer service and independent contractor opportunities
-</span>
-</h2>
+<div class="job-grid">
 
-<div class="company-grid">
-
-<a class="company-card" href="https://jobs.workingsolutions.com/" target="_blank">
-<span class="company-number">#21</span>
-<span class="company-name">Working Solutions</span>
-<span class="apply">Apply Now ↗</span>
+<a class="job-card" href="https://jobs.workingsolutions.com/" target="_blank">
+<span class="job-number">#21</span>
+<span class="job-name">Working Solutions</span>
+<span class="apply-link">Visit Careers ↗</span>
 </a>
 
-<a class="company-card" href="https://join.liveops.com/opportunities/" target="_blank">
-<span class="company-number">#22</span>
-<span class="company-name">Liveops</span>
-<span class="apply">Apply Now ↗</span>
+<a class="job-card" href="https://join.liveops.com/opportunities/" target="_blank">
+<span class="job-number">#22</span>
+<span class="job-name">Liveops</span>
+<span class="apply-link">Visit Careers ↗</span>
 </a>
 
-<a class="company-card" href="https://www.ariseworkfromhome.com/" target="_blank">
-<span class="company-number">#23</span>
-<span class="company-name">Arise</span>
-<span class="apply">Apply Now ↗</span>
+<a class="job-card" href="https://www.ariseworkfromhome.com/" target="_blank">
+<span class="job-number">#23</span>
+<span class="job-name">Arise</span>
+<span class="apply-link">Visit Careers ↗</span>
 </a>
 
-<a class="company-card" href="https://nexrep.com/apply/" target="_blank">
-<span class="company-number">#24</span>
-<span class="company-name">NexRep</span>
-<span class="apply">Apply Now ↗</span>
+<a class="job-card" href="https://nexrep.com/apply/" target="_blank">
+<span class="job-number">#24</span>
+<span class="job-name">NexRep</span>
+<span class="apply-link">Visit Careers ↗</span>
 </a>
 
-<a class="company-card" href="https://omniinteractions.com/join/" target="_blank">
-<span class="company-number">#25</span>
-<span class="company-name">Omni Interactions</span>
-<span class="apply">Apply Now ↗</span>
+<a class="job-card" href="https://omniinteractions.com/join/" target="_blank">
+<span class="job-number">#25</span>
+<span class="job-name">Omni Interactions</span>
+<span class="apply-link">Visit Careers ↗</span>
 </a>
 
-<a class="company-card" href="https://broadpath.com/careers/" target="_blank">
-<span class="company-number">#26</span>
-<span class="company-name">BroadPath</span>
-<span class="apply">Apply Now ↗</span>
+<a class="job-card" href="https://broadpath.com/careers/" target="_blank">
+<span class="job-number">#26</span>
+<span class="job-name">BroadPath</span>
+<span class="apply-link">Visit Careers ↗</span>
 </a>
 
-<a class="company-card" href="https://careers.kellyocg.com/" target="_blank">
-<span class="company-number">#27</span>
-<span class="company-name">Kelly Services</span>
-<span class="apply">Apply Now ↗</span>
+<a class="job-card" href="https://careers.kellyocg.com/" target="_blank">
+<span class="job-number">#27</span>
+<span class="job-name">Kelly Services</span>
+<span class="apply-link">Visit Careers ↗</span>
 </a>
 
 </div>
-</section>
+</div>
 
-<!-- =====================================================
-     HEALTHCARE
-===================================================== -->
 
-<section class="section category" id="healthcare" data-category="healthcare">
+<!-- HEALTHCARE -->
 
-<h2 class="category-title">
+<div class="category-section" id="healthcare" data-category="healthcare">
+
+<h3 class="category-title">
 🏥 Healthcare & Health Insurance
+</h3>
 
-<span>
-Healthcare, insurance, member services, scheduling, and support opportunities
-</span>
-</h2>
+<div class="job-grid">
 
-<div class="company-grid">
-
-<a class="company-card" href="https://jobs.cvshealth.com/us/en/search-results?keywords=Remote" target="_blank">
-<span class="company-number">#28</span>
-<span class="company-name">CVS Health</span>
-<span class="apply">Apply Now ↗</span>
+<a class="job-card" href="https://jobs.cvshealth.com/us/en/search-results?keywords=Remote" target="_blank">
+<span class="job-number">#28</span>
+<span class="job-name">CVS Health</span>
+<span class="apply-link">Visit Careers ↗</span>
 </a>
 
-<a class="company-card" href="https://jobs.thecignagroup.com/us/en/remote-jobs" target="_blank">
-<span class="company-number">#29</span>
-<span class="company-name">The Cigna Group</span>
-<span class="apply">Apply Now ↗</span>
+<a class="job-card" href="https://jobs.thecignagroup.com/us/en/remote-jobs" target="_blank">
+<span class="job-number">#29</span>
+<span class="job-name">The Cigna Group</span>
+<span class="apply-link">Visit Careers ↗</span>
 </a>
 
-<a class="company-card" href="https://careers.unitedhealthgroup.com/location/remote-jobs/34088/1000000000100/2" target="_blank">
-<span class="company-number">#30</span>
-<span class="company-name">UnitedHealth Group</span>
-<span class="apply">Apply Now ↗</span>
+<a class="job-card" href="https://careers.unitedhealthgroup.com/location/remote-jobs/34088/1000000000100/2" target="_blank">
+<span class="job-number">#30</span>
+<span class="job-name">UnitedHealth Group</span>
+<span class="apply-link">Visit Careers ↗</span>
 </a>
 
-<a class="company-card" href="https://www.optum.com/careers.html" target="_blank">
-<span class="company-number">#31</span>
-<span class="company-name">Optum</span>
-<span class="apply">Apply Now ↗</span>
+<a class="job-card" href="https://www.optum.com/careers.html" target="_blank">
+<span class="job-number">#31</span>
+<span class="job-name">Optum</span>
+<span class="apply-link">Visit Careers ↗</span>
 </a>
 
-<a class="company-card" href="https://careers.humana.com/us/en/search-results?keywords=Remote" target="_blank">
-<span class="company-number">#32</span>
-<span class="company-name">Humana</span>
-<span class="apply">Apply Now ↗</span>
+<a class="job-card" href="https://careers.humana.com/us/en/search-results?keywords=Remote" target="_blank">
+<span class="job-number">#32</span>
+<span class="job-name">Humana</span>
+<span class="apply-link">Visit Careers ↗</span>
 </a>
 
-<a class="company-card" href="https://careers.elevancehealth.com/" target="_blank">
-<span class="company-number">#33</span>
-<span class="company-name">Elevance Health</span>
-<span class="apply">Apply Now ↗</span>
+<a class="job-card" href="https://careers.elevancehealth.com/" target="_blank">
+<span class="job-number">#33</span>
+<span class="job-name">Elevance Health</span>
+<span class="apply-link">Visit Careers ↗</span>
 </a>
 
-<a class="company-card" href="https://careers.molinahealthcare.com/" target="_blank">
-<span class="company-number">#34</span>
-<span class="company-name">Molina Healthcare</span>
-<span class="apply">Apply Now ↗</span>
+<a class="job-card" href="https://careers.molinahealthcare.com/" target="_blank">
+<span class="job-number">#34</span>
+<span class="job-name">Molina Healthcare</span>
+<span class="apply-link">Visit Careers ↗</span>
 </a>
 
-<a class="company-card" href="https://r1rcm.com/careers/" target="_blank">
-<span class="company-number">#35</span>
-<span class="company-name">R1 RCM</span>
-<span class="apply">Apply Now ↗</span>
+<a class="job-card" href="https://r1rcm.com/careers/" target="_blank">
+<span class="job-number">#35</span>
+<span class="job-name">R1 RCM</span>
+<span class="apply-link">Visit Careers ↗</span>
 </a>
 
-<a class="company-card" href="https://sagilityhealth.com/careers/" target="_blank">
-<span class="company-number">#36</span>
-<span class="company-name">Sagility</span>
-<span class="apply">Apply Now ↗</span>
+<a class="job-card" href="https://sagilityhealth.com/careers/" target="_blank">
+<span class="job-number">#36</span>
+<span class="job-name">Sagility</span>
+<span class="apply-link">Visit Careers ↗</span>
 </a>
 
-<a class="company-card" href="https://pinsourcing.com/jobs/" target="_blank">
-<span class="company-number">#37</span>
-<span class="company-name">Pearl Interactive</span>
-<span class="apply">Apply Now ↗</span>
+<a class="job-card" href="https://pinsourcing.com/jobs/" target="_blank">
+<span class="job-number">#37</span>
+<span class="job-name">Pearl Interactive</span>
+<span class="apply-link">Visit Careers ↗</span>
 </a>
 
-<a class="company-card" href="https://jobs.centene.com/" target="_blank">
-<span class="company-number">#38</span>
-<span class="company-name">Centene</span>
-<span class="apply">Apply Now ↗</span>
+<a class="job-card" href="https://jobs.centene.com/" target="_blank">
+<span class="job-number">#38</span>
+<span class="job-name">Centene</span>
+<span class="apply-link">Visit Careers ↗</span>
 </a>
 
-<a class="company-card" href="https://jobs.cvshealth.com/us/en/search-results?keywords=Aetna+Remote" target="_blank">
-<span class="company-number">#39</span>
-<span class="company-name">Aetna</span>
-<span class="apply">Apply Now ↗</span>
+<a class="job-card" href="https://jobs.cvshealth.com/us/en/search-results?keywords=Aetna+Remote" target="_blank">
+<span class="job-number">#39</span>
+<span class="job-name">Aetna</span>
+<span class="apply-link">Visit Careers ↗</span>
 </a>
 
-<a class="company-card" href="https://about.kaiserpermanente.org/careers" target="_blank">
-<span class="company-number">#40</span>
-<span class="company-name">Kaiser Permanente</span>
-<span class="apply">Apply Now ↗</span>
+<a class="job-card" href="https://about.kaiserpermanente.org/careers" target="_blank">
+<span class="job-number">#40</span>
+<span class="job-name">Kaiser Permanente</span>
+<span class="apply-link">Visit Careers ↗</span>
 </a>
 
 </div>
-</section>
+</div>
 
-<!-- =====================================================
-     CORPORATE
-===================================================== -->
 
-<section class="section category" id="corporate" data-category="corporate">
+<!-- CORPORATE -->
 
-<h2 class="category-title">
-💼 Corporate, Tech, Finance & Travel
+<div class="category-section" id="corporate" data-category="corporate">
 
-<span>
-Technology, banking, finance, travel, retail, and corporate career opportunities
-</span>
-</h2>
+<h3 class="category-title">
+💼 Corporate, Technology, Finance & Travel
+</h3>
 
-<div class="company-grid">
+<div class="job-grid">
 
-<a class="company-card" href="https://www.amazon.jobs/en/locations/virtual-locations" target="_blank">
-<span class="company-number">#41</span>
-<span class="company-name">Amazon</span>
-<span class="apply">Apply Now ↗</span>
+<a class="job-card" href="https://www.amazon.jobs/en/locations/virtual-locations" target="_blank">
+<span class="job-number">#41</span>
+<span class="job-name">Amazon</span>
+<span class="apply-link">Visit Careers ↗</span>
 </a>
 
-<a class="company-card" href="https://jobs.apple.com/en-us/search?team=home-advisor" target="_blank">
-<span class="company-number">#42</span>
-<span class="company-name">Apple</span>
-<span class="apply">Apply Now ↗</span>
+<a class="job-card" href="https://jobs.apple.com/en-us/search?team=home-advisor" target="_blank">
+<span class="job-number">#42</span>
+<span class="job-name">Apple</span>
+<span class="apply-link">Visit Careers ↗</span>
 </a>
 
-<a class="company-card" href="https://jobs.dell.com/remote-jobs" target="_blank">
-<span class="company-number">#43</span>
-<span class="company-name">Dell Technologies</span>
-<span class="apply">Apply Now ↗</span>
+<a class="job-card" href="https://jobs.dell.com/remote-jobs" target="_blank">
+<span class="job-number">#43</span>
+<span class="job-name">Dell Technologies</span>
+<span class="apply-link">Visit Careers ↗</span>
 </a>
 
-<a class="company-card" href="https://careers.microsoft.com/v2/global/en/home.html" target="_blank">
-<span class="company-number">#44</span>
-<span class="company-name">Microsoft</span>
-<span class="apply">Apply Now ↗</span>
+<a class="job-card" href="https://careers.microsoft.com/v2/global/en/home.html" target="_blank">
+<span class="job-number">#44</span>
+<span class="job-name">Microsoft</span>
+<span class="apply-link">Visit Careers ↗</span>
 </a>
 
-<a class="company-card" href="https://aexp.fourbusiness.com/careers" target="_blank">
-<span class="company-number">#45</span>
-<span class="company-name">American Express</span>
-<span class="apply">Apply Now ↗</span>
+<a class="job-card" href="https://aexp.fourbusiness.com/careers" target="_blank">
+<span class="job-number">#45</span>
+<span class="job-name">American Express</span>
+<span class="apply-link">Visit Careers ↗</span>
 </a>
 
-<a class="company-card" href="https://www.capitalonecareers.com/" target="_blank">
-<span class="company-number">#46</span>
-<span class="company-name">Capital One</span>
-<span class="apply">Apply Now ↗</span>
+<a class="job-card" href="https://www.capitalonecareers.com/" target="_blank">
+<span class="job-number">#46</span>
+<span class="job-name">Capital One</span>
+<span class="apply-link">Visit Careers ↗</span>
 </a>
 
-<a class="company-card" href="https://careers.pnc.com/" target="_blank">
-<span class="company-number">#47</span>
-<span class="company-name">PNC Bank</span>
-<span class="apply">Apply Now ↗</span>
+<a class="job-card" href="https://careers.pnc.com/" target="_blank">
+<span class="job-number">#47</span>
+<span class="job-name">PNC Bank</span>
+<span class="apply-link">Visit Careers ↗</span>
 </a>
 
-<a class="company-card" href="https://www.wellsfargojobs.com/" target="_blank">
-<span class="company-number">#48</span>
-<span class="company-name">Wells Fargo</span>
-<span class="apply">Apply Now ↗</span>
+<a class="job-card" href="https://www.wellsfargojobs.com/" target="_blank">
+<span class="job-number">#48</span>
+<span class="job-name">Wells Fargo</span>
+<span class="apply-link">Visit Careers ↗</span>
 </a>
 
-<a class="company-card" href="https://jobs.fidelity.com/" target="_blank">
-<span class="company-number">#49</span>
-<span class="company-name">Fidelity</span>
-<span class="apply">Apply Now ↗</span>
+<a class="job-card" href="https://jobs.fidelity.com/" target="_blank">
+<span class="job-number">#49</span>
+<span class="job-name">Fidelity</span>
+<span class="apply-link">Visit Careers ↗</span>
 </a>
 
-<a class="company-card" href="https://jobs.schwabjobs.com/" target="_blank">
-<span class="company-number">#50</span>
-<span class="company-name">Charles Schwab</span>
-<span class="apply">Apply Now ↗</span>
+<a class="job-card" href="https://jobs.schwabjobs.com/" target="_blank">
+<span class="job-number">#50</span>
+<span class="job-name">Charles Schwab</span>
+<span class="apply-link">Visit Careers ↗</span>
 </a>
 
-<a class="company-card" href="https://www.telusdigital.com/careers" target="_blank">
-<span class="company-number">#51</span>
-<span class="company-name">TELUS Digital</span>
-<span class="apply">Apply Now ↗</span>
+<a class="job-card" href="https://www.telusdigital.com/careers" target="_blank">
+<span class="job-number">#51</span>
+<span class="job-name">TELUS Digital</span>
+<span class="apply-link">Visit Careers ↗</span>
 </a>
 
-<a class="company-card" href="https://jobs.adp.com/" target="_blank">
-<span class="company-number">#52</span>
-<span class="company-name">ADP</span>
-<span class="apply">Apply Now ↗</span>
+<a class="job-card" href="https://jobs.adp.com/" target="_blank">
+<span class="job-number">#52</span>
+<span class="job-name">ADP</span>
+<span class="apply-link">Visit Careers ↗</span>
 </a>
 
-<a class="company-card" href="https://aquent.com/find-work" target="_blank">
-<span class="company-number">#53</span>
-<span class="company-name">Aquent</span>
-<span class="apply">Apply Now ↗</span>
+<a class="job-card" href="https://aquent.com/find-work" target="_blank">
+<span class="job-number">#53</span>
+<span class="job-name">Aquent</span>
+<span class="apply-link">Visit Careers ↗</span>
 </a>
 
-<a class="company-card" href="https://www.roberthalf.com/us/en/jobs" target="_blank">
-<span class="company-number">#54</span>
-<span class="company-name">Robert Half</span>
-<span class="apply">Apply Now ↗</span>
+<a class="job-card" href="https://www.roberthalf.com/us/en/jobs" target="_blank">
+<span class="job-number">#54</span>
+<span class="job-name">Robert Half</span>
+<span class="apply-link">Visit Careers ↗</span>
 </a>
 
-<a class="company-card" href="https://careers.united.com/" target="_blank">
-<span class="company-number">#55</span>
-<span class="company-name">United Airlines</span>
-<span class="apply">Apply Now ↗</span>
+<a class="job-card" href="https://careers.united.com/" target="_blank">
+<span class="job-number">#55</span>
+<span class="job-name">United Airlines</span>
+<span class="apply-link">Visit Careers ↗</span>
 </a>
 
-<a class="company-card" href="https://jobs.aa.com/" target="_blank">
-<span class="company-number">#56</span>
-<span class="company-name">American Airlines</span>
-<span class="apply">Apply Now ↗</span>
+<a class="job-card" href="https://jobs.aa.com/" target="_blank">
+<span class="job-number">#56</span>
+<span class="job-name">American Airlines</span>
+<span class="apply-link">Visit Careers ↗</span>
 </a>
 
-<a class="company-card" href="https://careers.marriott.com/" target="_blank">
-<span class="company-number">#57</span>
-<span class="company-name">Marriott</span>
-<span class="apply">Apply Now ↗</span>
+<a class="job-card" href="https://careers.marriott.com/" target="_blank">
+<span class="job-number">#57</span>
+<span class="job-name">Marriott</span>
+<span class="apply-link">Visit Careers ↗</span>
 </a>
 
-<a class="company-card" href="https://jobs.hilton.com/" target="_blank">
-<span class="company-number">#58</span>
-<span class="company-name">Hilton</span>
-<span class="apply">Apply Now ↗</span>
+<a class="job-card" href="https://jobs.hilton.com/" target="_blank">
+<span class="job-number">#58</span>
+<span class="job-name">Hilton</span>
+<span class="apply-link">Visit Careers ↗</span>
 </a>
 
-<a class="company-card" href="https://www.chewy.com/jobs" target="_blank">
-<span class="company-number">#59</span>
-<span class="company-name">Chewy</span>
-<span class="apply">Apply Now ↗</span>
+<a class="job-card" href="https://www.chewy.com/jobs" target="_blank">
+<span class="job-number">#59</span>
+<span class="job-name">Chewy</span>
+<span class="apply-link">Visit Careers ↗</span>
 </a>
 
-<a class="company-card" href="https://www.wayfair.com/careers" target="_blank">
-<span class="company-number">#60</span>
-<span class="company-name">Wayfair</span>
-<span class="apply">Apply Now ↗</span>
+<a class="job-card" href="https://www.wayfair.com/careers" target="_blank">
+<span class="job-number">#60</span>
+<span class="job-name">Wayfair</span>
+<span class="apply-link">Visit Careers ↗</span>
 </a>
 
 </div>
-</section>
-
-<!-- =====================================================
-     RESOURCES
-===================================================== -->
-
-<section class="section" id="resources">
-
-<h2 class="section-heading">
-📚 Remote Career Resources
-</h2>
-
-<p class="section-subtitle">
-Helpful resources to help you prepare for and protect your remote job search.
-</p>
-
-<div class="resource-grid">
-
-<a class="resource-card"
-href="https://www.usa.gov/resume"
-target="_blank">
-
-<h3>📝 Resume Help</h3>
-
-<p>
-Get help creating or improving your resume.
-</p>
-
-</a>
-
-<a class="resource-card"
-href="https://www.dol.gov/general/topic/training"
-target="_blank">
-
-<h3>🎓 Career Training</h3>
-
-<p>
-Explore career training and development resources.
-</p>
-
-</a>
-
-<a class="resource-card"
-href="https://www.usa.gov/job-search"
-target="_blank">
-
-<h3>🔎 Job Search Help</h3>
-
-<p>
-Explore official job search resources.
-</p>
-
-</a>
-
-<a class="resource-card"
-href="https://www.ftc.gov/scams"
-target="_blank">
-
-<h3>🚨 Scam Awareness</h3>
-
-<p>
-Learn how to recognize employment scams.
-</p>
-
-</a>
-
-<a class="resource-card"
-href="https://www.dol.gov/general/topic/youthlabor/workers"
-target="_blank">
-
-<h3>💼 Workplace Information</h3>
-
-<p>
-Learn about workplace rights and employment resources.
-</p>
-
-</a>
-
-<a class="resource-card"
-href="https://www.usa.gov/job-training"
-target="_blank">
-
-<h3>💻 Job Skills</h3>
-
-<p>
-Explore resources to strengthen your career skills.
-</p>
-
-</a>
+</div>
 
 </div>
 
 </section>
 
-<!-- =====================================================
+
+<!-- =========================================================
+     NO PHONE JOB DIRECTORY
+========================================================= -->
+
+<section class="no-phone-section" id="no-phone-jobs">
+
+<div class="container">
+
+<div class="section-heading">
+
+<div>
+<h2>💬 No-Phone Remote Work Resources</h2>
+
+<p>
+These employers and platforms may offer roles involving chat, email, content
+review, online tasks, data, or other work that may not require traditional
+phone-based customer service. Always verify the exact job description.
+</p>
+
+</div>
+
+</div>
+
+<div class="no-phone-job-grid">
+
+<div class="no-phone-job">
+<h3>💬 TELUS Digital</h3>
+<p>Explore digital and online roles. Individual positions may vary in duties.</p>
+<a href="https://www.telusdigital.com/careers" target="_blank">View Careers ↗</a>
+</div>
+
+<div class="no-phone-job">
+<h3>🖥️ ModSquad</h3>
+<p>Explore online community management, moderation, and digital support opportunities.</p>
+<a href="https://modsquad.com/careers/" target="_blank">View Careers ↗</a>
+</div>
+
+<div class="no-phone-job">
+<h3>⌨️ DataAnnotation</h3>
+<p>Explore online AI training and data-related opportunities. Review eligibility carefully.</p>
+<a href="https://www.dataannotation.tech/" target="_blank">Visit Website ↗</a>
+</div>
+
+<div class="no-phone-job">
+<h3>🔎 Welocalize</h3>
+<p>Explore remote language, search quality, and digital content opportunities.</p>
+<a href="https://jobs.lever.co/welocalize" target="_blank">View Careers ↗</a>
+</div>
+
+<div class="no-phone-job">
+<h3>📝 Outlier</h3>
+<p>Explore flexible AI training and online project opportunities.</p>
+<a href="https://outlier.ai/" target="_blank">Visit Website ↗</a>
+</div>
+
+<div class="no-phone-job">
+<h3>💻 Appen</h3>
+<p>Explore flexible remote projects involving data, language, and AI-related tasks.</p>
+<a href="https://jobs.lever.co/appen" target="_blank">View Careers ↗</a>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
      APPLICATION TRACKER
-===================================================== -->
+========================================================= -->
 
-<section class="section" id="tracker">
+<section class="tracker" id="tracker">
 
-<h2 class="section-heading">
-📊 My Job Application Tracker
-</h2>
+<div class="container">
 
-<p class="section-subtitle">
-Add your applications below. Your applications are saved in your browser
-so they remain available when you return to this website on the same device and browser.
+<div class="section-heading">
+
+<div>
+<h2>📊 My Application Tracker</h2>
+
+<p>
+Add applications and track your progress. Your entries are saved in this browser
+using local storage.
 </p>
+
+</div>
+
+</div>
+
+<div class="tracker-box">
 
 <div class="tracker-form">
 
-<input
-type="text"
-id="trackerCompany"
-placeholder="Company Name"
+<input id="trackerCompany" type="text" placeholder="Company">
 
->
-
-<input
-type="text"
-id="trackerPosition"
-placeholder="Job Title"
-
->
+<input id="trackerPosition" type="text" placeholder="Job Title">
 
 <select id="trackerStatus">
 
-<option value="Applied">Applied</option>
-
-<option value="Interview">Interview</option>
-
-<option value="Assessment">Assessment</option>
-
-<option value="Offer">Offer</option>
-
-<option value="Rejected">Not Selected</option>
+<option>Applied</option>
+<option>Assessment</option>
+<option>Interview</option>
+<option>Second Interview</option>
+<option>Offer</option>
+<option>Not Selected</option>
 
 </select>
 
@@ -1882,131 +1763,189 @@ Add Application
 
 </div>
 
+<div class="tracker-table-wrap">
+
 <table class="tracker-table">
 
 <thead>
 
 <tr>
-
 <th>Company</th>
-
 <th>Position</th>
-
 <th>Status</th>
-
 <th>Action</th>
-
 </tr>
 
 </thead>
 
-<tbody id="applicationList">
-
-</tbody>
+<tbody id="applicationList"></tbody>
 
 </table>
 
-</section>
+</div>
 
-<!-- =====================================================
-     SCAM WARNING
-===================================================== -->
-
-<section class="scam-warning">
-
-<h2>
-🚨 Protect Yourself From Work-From-Home Scams
-</h2>
-
-<ul>
-
-<li>Never pay someone to receive a job offer.</li>
-
-<li>Be cautious of employers requesting gift cards, cryptocurrency, or wire transfers.</li>
-
-<li>Verify that you are applying through the company's official career website.</li>
-
-<li>Be careful with recruiters who only communicate through messaging apps or personal email addresses.</li>
-
-<li>Never provide sensitive personal information until you have verified the employer.</li>
-
-<li>Research the company before accepting an offer.</li>
-
-</ul>
-
-</section>
-
-<!-- =====================================================
-     ABOUT
-===================================================== -->
-
-<section class="section about-section">
-
-<h2 class="section-heading">
-✨ About Joycelyn's Work From Home Job Hub
-</h2>
-
-<p>
-Welcome! I'm Joycelyn, and I created this Work From Home Job Hub to make it easier
-for job seekers to find legitimate career opportunities in one convenient place.
-</p>
-
-<p>
-My goal is to help people discover employers, explore career options, prepare for interviews,
-and stay organized throughout their job search.
-</p>
-
-<p>
-Always review the official employer website for the most current job openings,
-location requirements, eligibility requirements, and application instructions.
-</p>
-
-</section>
-
-<!-- =====================================================
-     CONTACT
-===================================================== -->
-
-<section class="contact-section">
-
-<h2>
-💌 Connect With Joycelyn
-</h2>
-
-<p>
-Have a question, suggestion, or want to share a work-from-home opportunity?
-</p>
-
-<div class="contact-buttons">
-
-<a href="mailto:joycelyncooper93@outlook.com">
-📧 Email Joycelyn
-</a>
-
-<a href="https://www.facebook.com/" target="_blank">
-📘 Facebook
-</a>
-
-<a href="https://www.instagram.com/" target="_blank">
-📸 Instagram
-</a>
+</div>
 
 </div>
 
 </section>
 
-<!-- =====================================================
-     FOOTER
-===================================================== -->
 
-<footer class="footer">
+<!-- =========================================================
+     RESOURCES
+========================================================= -->
 
-<strong>
-✦ Joycelyn's Work From Home Job Hub ✦
-</strong>
+<section class="resources" id="resources">
+
+<div class="container">
+
+<div class="section-heading">
+
+<div>
+<h2>📚 Career Resources</h2>
 
 <p>
-Helping job seekers discover work-from-home career opportunities.
+Helpful resources for preparing for your remote job search.
+</p>
+
+</div>
+
+</div>
+
+<div class="resource-grid">
+
+<a class="resource-card" href="https://www.usa.gov/resume" target="_blank">
+<h3>📝 Resume Help</h3>
+<p>Find resources to help create or improve your resume.</p>
+</a>
+
+<a class="resource-card" href="https://www.usa.gov/job-search" target="_blank">
+<h3>🔎 Job Search Help</h3>
+<p>Explore official employment and job search resources.</p>
+</a>
+
+<a class="resource-card" href="https://www.dol.gov/general/topic/training" target="_blank">
+<h3>🎓 Career Training</h3>
+<p>Explore training and career development resources.</p>
+</a>
+
+<a class="resource-card" href="https://www.ftc.gov/scams" target="_blank">
+<h3>🚨 Scam Awareness</h3>
+<p>Learn how to recognize and avoid common scams.</p>
+</a>
+
+<a class="resource-card" href="https://www.usa.gov/job-training" target="_blank">
+<h3>💻 Job Skills</h3>
+<p>Explore resources for improving career skills.</p>
+</a>
+
+<a class="resource-card" href="https://www.dol.gov/general/topic/workhours" target="_blank">
+<h3>⚖️ Workplace Information</h3>
+<p>Learn more about workplace information and employment resources.</p>
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     SCAM WARNING
+========================================================= -->
+
+<div class="container">
+
+<section class="scam">
+
+<h2>🚨 Protect Yourself From Work-From-Home Scams</h2>
+
+<ul>
+
+<li>Never pay someone to receive a job offer.</li>
+
+<li>Never send gift cards or cryptocurrency to an alleged employer.</li>
+
+<li>Verify that you are applying through the company's official career website.</li>
+
+<li>Be cautious of recruiters who only communicate through personal email or messaging apps.</li>
+
+<li>Never share sensitive personal information before verifying the employer.</li>
+
+<li>Research the company and job posting before accepting an offer.</li>
+
+</ul>
+
+</section>
+
+</div>
+
+
+<!-- =========================================================
+     ABOUT
+========================================================= -->
+
+<section class="about" id="about">
+
+<div class="about-content">
+
+<h2>💕 About Joycelyn's Work From Home Job Hub</h2>
+
+<p>
+Hi, I'm Joycelyn! I created this website to help job seekers find remote work
+opportunities in one convenient place.
+</p>
+
+<p>
+My goal is to make the job search easier by connecting people with employer
+career pages, flexible work opportunities, career resources, and helpful tools.
+</p>
+
+<p>
+Please remember that job openings, remote eligibility, pay, schedules, and
+requirements can change. Always verify the latest information directly with
+the employer.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     CONTACT
+========================================================= -->
+
+<section class="contact" id="contact">
+
+<h2>💌 Connect With Joycelyn</h2>
+
+<p>
+Have a question, suggestion, or want to share a remote work opportunity?
+</p>
+
+<a href="mailto:joycelyncooper93@outlook.com">
+📧 Email Joycelyn
+</a>
+
+</section>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+<p>
+<strong>✨ Joycelyn's Work From Home Job Hub ✨</strong>
+</p>
+
+<p>
+Helping job seekers discover remote career opportunities.
 </p>
 
 <p>
@@ -2014,64 +1953,66 @@ Helping job seekers discover work-from-home career opportunities.
 </p>
 
 <p>
-<strong>Important:</strong>
-Job availability and remote-work eligibility can change.
-Always verify current openings and requirements directly with the employer.
+Job availability and eligibility can change. Always verify current information
+directly with the employer.
 </p>
 
 </footer>
 
-</div>
 
-<!-- =====================================================
+<!-- =========================================================
      BACK TO TOP
-===================================================== -->
+========================================================= -->
 
-<button
-id="topButton"
-onclick="window.scrollTo({top:0,behavior:'smooth'})"
+<button id="topButton" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+↑
+</button>
 
->
-
-↑ </button>
 
 <script>
 
 /* =========================================================
-   SEARCH COMPANIES
+   SEARCH
 ========================================================= */
 
 function searchCompanies() {
 
-    let input =
+    const input =
         document
         .getElementById("companySearch")
         .value
-        .toLowerCase();
+        .toLowerCase()
+        .trim();
 
-    let cards =
+    const cards =
         document
-        .querySelectorAll(".company-card");
+        .querySelectorAll(".job-card");
 
-    cards.forEach(function(card) {
+    cards.forEach(card => {
 
-        let companyName =
+        const name =
             card
-            .querySelector(".company-name")
+            .querySelector(".job-name")
             .textContent
             .toLowerCase();
 
-        if(companyName.includes(input)) {
-
-            card.style.display = "flex";
-
-        } else {
-
-            card.style.display = "none";
-
-        }
+        card.style.display =
+            name.includes(input)
+            ? "flex"
+            : "none";
 
     });
+
+}
+
+
+function clearSearch() {
+
+    document
+    .getElementById("companySearch")
+    .value = "";
+
+    searchCompanies();
 
 }
 
@@ -2082,23 +2023,21 @@ function searchCompanies() {
 
 function filterCategory(category, button) {
 
-    let sections =
+    const sections =
         document
-        .querySelectorAll(".category");
+        .querySelectorAll(".category-section");
 
-    let buttons =
+    const buttons =
         document
         .querySelectorAll(".filter-btn");
 
-    buttons.forEach(function(btn) {
-
+    buttons.forEach(btn => {
         btn.classList.remove("active");
-
     });
 
     button.classList.add("active");
 
-    sections.forEach(function(section) {
+    sections.forEach(section => {
 
         if(category === "all") {
 
@@ -2106,15 +2045,10 @@ function filterCategory(category, button) {
 
         } else {
 
-            if(section.dataset.category === category) {
-
-                section.style.display = "block";
-
-            } else {
-
-                section.style.display = "none";
-
-            }
+            section.style.display =
+                section.dataset.category === category
+                ? "block"
+                : "none";
 
         }
 
@@ -2144,21 +2078,18 @@ function saveApplications() {
 }
 
 
-function displayApplications() {
+function renderApplications() {
 
-    let table =
+    const list =
         document
         .getElementById("applicationList");
 
-    table.innerHTML = "";
+    list.innerHTML = "";
 
+    applications.forEach((application,index) => {
 
-    applications.forEach(function(application,index) {
-
-        let row =
-            document
-            .createElement("tr");
-
+        const row =
+            document.createElement("tr");
 
         row.innerHTML = `
 
@@ -2169,22 +2100,16 @@ function displayApplications() {
             <td>${escapeHTML(application.status)}</td>
 
             <td>
-
                 <button
                 class="delete-btn"
-                onclick="deleteApplication(${index})"
-                >
-
+                onclick="deleteApplication(${index})">
                 Remove
-
                 </button>
-
             </td>
 
         `;
 
-
-        table.appendChild(row);
+        list.appendChild(row);
 
     });
 
@@ -2193,28 +2118,28 @@ function displayApplications() {
 
 function addApplication() {
 
-    let company =
+    const company =
         document
         .getElementById("trackerCompany")
         .value
         .trim();
 
-    let position =
+    const position =
         document
         .getElementById("trackerPosition")
         .value
         .trim();
 
-    let status =
+    const status =
         document
         .getElementById("trackerStatus")
         .value;
 
 
-    if(company === "" || position === "") {
+    if(!company || !position) {
 
         alert(
-            "Please enter the company and job title."
+            "Please enter a company and job title."
         );
 
         return;
@@ -2235,13 +2160,12 @@ function addApplication() {
 
     saveApplications();
 
-    displayApplications();
+    renderApplications();
 
 
     document
     .getElementById("trackerCompany")
     .value = "";
-
 
     document
     .getElementById("trackerPosition")
@@ -2254,7 +2178,7 @@ function deleteApplication(index) {
 
     if(
         confirm(
-            "Are you sure you want to remove this application?"
+            "Remove this application from your tracker?"
         )
     ) {
 
@@ -2262,7 +2186,7 @@ function deleteApplication(index) {
 
         saveApplications();
 
-        displayApplications();
+        renderApplications();
 
     }
 
@@ -2271,12 +2195,11 @@ function deleteApplication(index) {
 
 /* =========================================================
    SECURITY
-   PREVENT HTML FROM BEING INSERTED INTO TRACKER
 ========================================================= */
 
 function escapeHTML(text) {
 
-    let div =
+    const div =
         document.createElement("div");
 
     div.textContent = text;
@@ -2287,38 +2210,31 @@ function escapeHTML(text) {
 
 
 /* =========================================================
-   LOAD SAVED APPLICATIONS
-========================================================= */
-
-displayApplications();
-
-
-/* =========================================================
-   BACK TO TOP BUTTON
+   BACK TO TOP
 ========================================================= */
 
 window.addEventListener(
     "scroll",
     function() {
 
-        let button =
+        const button =
             document
             .getElementById("topButton");
 
-        if(window.scrollY > 400) {
-
-            button.style.display =
-                "block";
-
-        } else {
-
-            button.style.display =
-                "none";
-
-        }
+        button.style.display =
+            window.scrollY > 500
+            ? "block"
+            : "none";
 
     }
 );
+
+
+/* =========================================================
+   LOAD SAVED APPLICATIONS
+========================================================= */
+
+renderApplications();
 
 </script>
 
